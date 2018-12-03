@@ -1,0 +1,22 @@
+<mat-card style="margin-bottom: 1rem; background-color: aliceblue;">
+  <form>
+    <h1 mat-dialog-title>{{data.date}}</h1>
+    <div mat-dialog-content>
+      <mat-form-field>
+        <input matInput [(ngModel)]="title" placeholder="{{data.title}}" name="title">
+      </mat-form-field>
+      <mat-form-field>
+        <textarea matInput [(ngModel)]="note" placeholder="{{data.note}}" name="note"></textarea>
+      </mat-form-field>
+      <mat-radio-group [(ngModel)]="status" name="status">
+        <mat-radio-button (change)="radioChange($event)"
+                          *ngFor="let s of statuses" [value]="s"
+                          [checked]="s === data.status">{{s}}</mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <div mat-dialog-actions>
+      <button mat-raised-button type="submit" (click)="updateNote(data.id)">Update</button>
+      <button mat-raised-button (click)="deleteNote(data.id)">Delete</button>
+    </div>
+  </form>
+</mat-card>

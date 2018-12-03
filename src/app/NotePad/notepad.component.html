@@ -1,0 +1,15 @@
+<div class="container" style="background-color: aquamarine; margin-top: 4rem;">
+  <mat-toolbar style="background-color: aquamarine">NotePad</mat-toolbar>
+  <div class="container marketing">
+    <!-- Three columns of text below the carousel -->
+    <div class="row" *ngIf="notes">
+      <div *ngFor="let note of notes" class="col-lg-4">
+        <note-comp
+          [data]="note"
+          (updated)="getNotes()"
+          (deleted)="getNotes()">
+        </note-comp>
+      </div><!-- /.col-lg-4 -->
+    </div><!-- /.row -->
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<h1 mat-dialog-title>Add Note</h1>
+<div mat-dialog-content>
+  <form>
+
+  <!--<form class="example-container" [formGroup]="note" (ngSubmit) = "onSubmit($event)">-->
+    <mat-form-field style="width: 100%">
+      <input type="number" [(ngModel)]="id" matInput placeholder="id" name="id">
+    </mat-form-field>
+
+    <mat-form-field style="width: 100%">
+      <input [(ngModel)]="title" type="text" matInput placeholder="Title" name="title">
+             <!--formControlName="title">-->
+    </mat-form-field>
+
+    <mat-form-field style="width: 100%">
+      <textarea rows="3" matInput [(ngModel)]="note" placeholder="Note" name="note"></textarea>
+                <!--formControlName="note"></textarea>-->
+    </mat-form-field>
+
+    <mat-radio-group [(ngModel)]="status" name="status">
+      <mat-radio-button (change)="radioChange($event)" *ngFor="let s of statuses" [value]="s">{{s}}</mat-radio-button>
+    </mat-radio-group>
+  <div mat-dialog-actions>
+    <button mat-raised-button type="submit" mat-button (click)="addNote()">Add</button>
+  </div>
+  </form>
+</div>

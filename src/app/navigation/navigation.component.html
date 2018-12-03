@@ -1,0 +1,12 @@
+<mat-toolbar style="background-color: dimgray; position: fixed;
+    z-index: 10; top: 0;">
+  <button *ngIf="(isMobile | async)!.matches" mat-button [matMenuTriggerFor]="menu">Menu</button>
+  <button *ngIf="!(isMobile | async)!.matches" routerLink="notepad" mat-menu-item>NotePad</button>
+  <button *ngIf="!(isMobile | async)!.matches" (click)="openDialog()" mat-menu-item>Add Note</button>
+  <mat-menu #menu="matMenu">
+    <button routerLink="notepad" mat-menu-item>Note Pad</button>
+    <button (click)="openDialog()" mat-menu-item>Add Note</button>
+  </mat-menu>
+</mat-toolbar>
+
+<router-outlet></router-outlet>
