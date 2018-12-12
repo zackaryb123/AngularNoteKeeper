@@ -9,9 +9,20 @@ import {HttpNoteService} from '../service/http-note.service';
 })
 export class NotepadComponent implements OnInit {
   private notes: Note[];
+  update$: boolean;
 
   constructor(
-    private httpNote: HttpNoteService) { }
+    private httpNote: HttpNoteService) {
+    this.httpNote.doUpdateNotes$.subscribe(data => {
+      console.log(data);
+      if (this.update$ !== data) {
+        this.update$ = data;
+        if (this.update$ === true) {
+          this.getNotes();
+        }
+      }
+    });
+  }
 
   ngOnInit() {
     this.getNotes();

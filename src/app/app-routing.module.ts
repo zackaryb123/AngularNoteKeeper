@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import {NotepadComponent} from './NotePad/notepad.component';
 
 const routes: Routes = [
-  {path: 'notepad', component: NotepadComponent}
+  {path: 'note', component: NotepadComponent}
 ];
 
 @NgModule({

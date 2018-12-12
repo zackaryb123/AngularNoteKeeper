@@ -16,7 +16,6 @@ export class NoteComponent implements OnInit, OnChanges {
   private status: any = null;
   statuses: string[] = ['Pending', 'Complete'];
 
-
   constructor(
     private httpNote: HttpNoteService
   ) {}
@@ -47,7 +46,6 @@ export class NoteComponent implements OnInit, OnChanges {
     this.status = e.value;
     console.log('Selected: ' + this.status);
   }
-
 
   updateComplete() {
     this.updated.emit('updated');
